@@ -15,13 +15,12 @@ public class MinCoinsDP_1 {
                 coins[i]=sc.nextInt();
                 }
             
-            //To memorize the solved steps we create a array
-            int dp[] = new int[n+1];
+            int dp[] = new int[n+1];     //To memorize the solved steps we create an array
             Arrays.fill(dp,-1);
             dp[0]=0;    //To make inital dp[0]=0
 
             int result=minChange(n,coins,dp);
-            if (result!=Integer.MAX_VALUE)  //if combination possible
+            if (result!=Integer.MAX_VALUE)    //if combination possible
             System.out.println("In minimum coins required: "+result);
             else                    //if combination not possible
             System.out.println(-1);     
@@ -36,10 +35,10 @@ public class MinCoinsDP_1 {
         int ans=Integer.MAX_VALUE;  
         for(int i=0;i<a.length;i++){
             if (n-a[i] >= 0){      //It stops the recursion function in case of change not possible with that combination.
-                int subAns = 0;
-                if (dp[n-a[i]]!=-1){
+                int subAns = 0;     
+                if (dp[n-a[i]]!=-1){      //check wheather the solution already present in the dp array
                     subAns=dp[n-a[i]];
-                }else{
+                }else{      //else use recurrance
                 subAns=minChange(n-a[i],a,dp );     //recursion call 
                 }
                 if(subAns!=Integer.MAX_VALUE && subAns+1<ans){  //subAns!=Integer.MAX_VALUE this cond false for coins combination which doesnt not possible to give sum target(n),if the subAns is min value then recursion makes ans=subAns.
@@ -51,9 +50,13 @@ public class MinCoinsDP_1 {
     }
 }
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+
+NOTE:
+1. THE COMPLEXITY IS REDUCED FROM O(M^N) TO O(M*N) USING DYNAMIC PROGRAMMING.
 
 /*QUESTION:
-
 You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
 Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
 You may assume that you have an infinite number of each kind of coin.
