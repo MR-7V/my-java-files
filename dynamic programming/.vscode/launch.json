@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MinCoinsDP_1",
+            "request": "launch",
+            "mainClass": "MinCoinsDP_1",
+            "projectName": "dynamic programming_2eb7901"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
