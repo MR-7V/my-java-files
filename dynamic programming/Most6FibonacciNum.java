@@ -14,6 +14,7 @@ public class Most6FibonacciNum
         return v1;
     }
 	public static void main(String[] args) {
-    System.out.println(fib(2,10));
+        Scanner sc= new Scanner(System.in);
+    
 	}
 }
